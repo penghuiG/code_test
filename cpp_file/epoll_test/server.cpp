@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <fcntl.h>  //fcntl
 #include <string.h>  //memcpy
+#include <string>
 #include <errno.h>  //errno
 #include <strings.h>  //strcasecmp
 #include <sys/stat.h>
@@ -116,7 +117,7 @@ int epollRun(int lfd)
 				pthread_create(&info->tid, NULL, recvHttpRequest, info);
 				//TODO线程退出
 			}
-
+			
 		}
 
 	}
@@ -159,6 +160,7 @@ void* acceptClient(void* arg)
 
 	return NULL;
 }
+
 void* recvHttpRequest(void* arg)
 {
 	struct FDInfo* info = (struct FDInfo*)arg;
@@ -179,6 +181,13 @@ void* recvHttpRequest(void* arg)
 		total += len;
 	}
 	printf("recvMsg threadId(recvHttpRequest) : %ld, buf = %s\n", info->tid, buf);
+	std::string response = "HTTP/1.1 200 OK\r\nContent-Length: " + std::to_string(total) + "\r\n\r\n" + buf;
+	int ret = send(info->fd, response.c_str(), response.size(), 0);
+	if (ret == -1)
+	{
+		perror("send");
+		return NULL;
+	}
 	//printf("total = %d\n", total);
 	//判断数据是否被接受完毕
 	if (len == -1 && errno == EAGAIN) //len 等于-1 并且错误为EAGAIN

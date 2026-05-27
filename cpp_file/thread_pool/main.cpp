@@ -87,16 +87,18 @@ private:
 int main() {
     // 创建一个包含4个线程的线程池
     ThreadPool pool(10);
-    std::mutex queue_mutex; 
     for (int i = 0; i < 10; ++i)
     {
-        pool.enqueue([](){
-            static int i = 0;
+        pool.enqueue([i](){
+            static int x = 0;
+            std::cout << "i: " << i << std::endl;
             static std::mutex m;
             {
                 std::lock_guard<std::mutex> lock(m);
-                ++i;
-                std::cout << "i: " << i << std::endl;
+                ++x;
+                
+                std::cout << "x: " << x << std::endl;
+                std::cout << std::endl;
             }
             std::this_thread::sleep_for(std::chrono::seconds(1));
         });
