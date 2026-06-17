@@ -12,11 +12,17 @@ public:
 class WindowsButton : public Button {
 public:
     void render() override { std::cout << "Windows Button\n"; }
+    ~WindowsButton() {
+        std::cout << "WindowsButton destructor called\n";
+    }
 };
 
 class MacButton : public Button {
 public:
     void render() override { std::cout << "Mac Button\n"; }
+    ~MacButton() {
+        std::cout << "MacButton destructor called\n";
+    }
 };
 
 // 工厂接口
