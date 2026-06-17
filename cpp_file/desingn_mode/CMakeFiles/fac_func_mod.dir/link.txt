@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/fac_func_mod.dir/fac_func_mod.cpp.o -o fac_func_mod 

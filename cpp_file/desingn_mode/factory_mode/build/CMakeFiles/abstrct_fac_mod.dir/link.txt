@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/abstrct_fac_mod.dir/home/xhh/my_code/cpp_file/cpp_mode/factory_mode/src/abstract_fac_mod.cpp.o -o /home/xhh/my_code/cpp_file/cpp_mode/factory_mode/bin/abstrct_fac_mod 

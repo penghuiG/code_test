@@ -1,5 +1,0 @@
-/home/xhh/my_code/cpp_file/cpp_mode/factory_mode/build/CMakeFiles/simple_fac_mod.dir
-/home/xhh/my_code/cpp_file/cpp_mode/factory_mode/build/CMakeFiles/fac_func_mod.dir
-/home/xhh/my_code/cpp_file/cpp_mode/factory_mode/build/CMakeFiles/abstrct_fac_mod.dir
-/home/xhh/my_code/cpp_file/cpp_mode/factory_mode/build/CMakeFiles/edit_cache.dir
-/home/xhh/my_code/cpp_file/cpp_mode/factory_mode/build/CMakeFiles/rebuild_cache.dir

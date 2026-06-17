@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/abstrct_fac_mod.dir/abstract_fac_mod.cpp.o -o abstrct_fac_mod 

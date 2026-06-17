@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/fac_func_mod.dir/home/xhh/my_code/cpp_file/cpp_mode/factory_mode/src/fac_func_mod.cpp.o -o /home/xhh/my_code/cpp_file/cpp_mode/factory_mode/bin/fac_func_mod 
