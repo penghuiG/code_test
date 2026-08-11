@@ -18,19 +18,42 @@ int task_work_i(void *data)
 int main()
 {
     pthread_t task_thread ;
+    pthread_t task_thread_1;
     int a = 10086;
     int b = 10010;
 
     pthread_create(&task_thread,NULL,work_handle,NULL);
+    pthread_create(&task_thread_1,NULL,work_handle_1,NULL);
     
     task_t *task = task_creat("first task",task_work_i,task_check_i,(void*)&a);
     task_t *task_2 = task_creat("second task",task_work_i,task_check_i,(void*)&b);
     if(task_add(task) == 0)
     {
     }
-    if(task_add(task_2) == 0)
+    if(task_add(task) == 0)
     {
     }
+    if(task_add(task) == 0)
+    {
+    }
+    if(task_add(task) == 0)
+    {
+    }
+    if(task_add(task) == 0)
+    {
+    }
+    if(task_add(task) == 0)
+    {
+    }
+    if(task_add(task) == 0)
+    {
+    }
+    if(task_add(task) == 0)
+    {
+    }
+    // if(task_add(task_2) == 0)
+    // {
+    // }
     
     sleep(10);
     

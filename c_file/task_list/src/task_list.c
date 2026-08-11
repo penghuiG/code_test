@@ -1,6 +1,6 @@
 #include "task_list.h"
 
-static task_list_t *task_list = NULL;
+task_list_t *task_list = NULL;
 pthread_mutex_t counter_mutex;
 pthread_cond_t task_cond;
 
@@ -27,8 +27,9 @@ int task_add(task_t * task)
         q = q->next;
         q->next = NULL;
     }
-    pthread_cond_signal(&task_cond);
     pthread_mutex_unlock(&counter_mutex);
+    pthread_cond_broadcast(&task_cond);
+    // pthread_cond_signal(&task_cond);
     
     return 0;
 }
@@ -53,11 +54,48 @@ void* work_handle(void *arg)
         {
             if(p->task->check(p->task->data) == 0)
             {
+                printf("handle No:1\n");
                 p->task->work(p->task->data);
             }
-            free(p);
         }
         
+        if(p)
+        {
+            free(p);
+        }
+        sleep(1);
+    }
+}
+
+void* work_handle_1(void *arg)
+{
+
+    while(1)
+    {
+        task_list_t *p = NULL;
+        pthread_mutex_lock(&counter_mutex);
+        while(task_list == NULL)
+        {
+            pthread_cond_wait(&task_cond,&counter_mutex);
+        }   
+        p = task_list;
+        task_list = task_list->next;
+
+        pthread_mutex_unlock(&counter_mutex);
+
+        if(p)
+        {
+            if(p->task->check(p->task->data) == 0)
+            {
+                printf("handle No:2\n");
+                p->task->work(p->task->data);
+            }
+        }
+        
+        if(p)
+        {
+            free(p);
+        }
         sleep(1);
     }
 }

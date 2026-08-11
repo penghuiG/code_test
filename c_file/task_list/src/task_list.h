@@ -12,4 +12,5 @@ typedef struct _task_list_t
 
 int task_add(task_t * task);
 void* work_handle(void *arg);
+void* work_handle_1(void *arg);
 #endif
