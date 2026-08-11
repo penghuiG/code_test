@@ -55,12 +55,9 @@ void* work_handle(void *arg)
             {
                 p->task->work(p->task->data);
             }
-        }
-        
-        if(p)
-        {
             free(p);
         }
+        
         sleep(1);
     }
 }
