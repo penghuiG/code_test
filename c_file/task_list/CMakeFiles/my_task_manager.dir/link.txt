@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/my_task_manager.dir/main.c.o CMakeFiles/my_task_manager.dir/task.c.o CMakeFiles/my_task_manager.dir/task_list.c.o -o my_task_manager 

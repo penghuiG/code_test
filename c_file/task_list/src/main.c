@@ -23,12 +23,12 @@ int main()
 
     pthread_create(&task_thread,NULL,work_handle,NULL);
     
-    task_t *task = task_creat("first task",task_work_i,NULL,(void*)&a);
+    task_t *task = task_creat("first task",task_work_i,task_check_i,(void*)&a);
     task_t *task_2 = task_creat("second task",task_work_i,task_check_i,(void*)&b);
-    if (task_add(task) != 0)
+    if(task_add(task) == 0)
     {
     }
-    if (task_add(task_2) != 0)
+    if(task_add(task_2) == 0)
     {
     }
     
@@ -37,8 +37,9 @@ int main()
     for(int i = 0;i<5;++i)
     {
         int t[5] = {0,1,2,3,4};
+        // printf("%d\n",t);
         task_t *task_x = task_creat("task i",task_work_i,task_check_i,(void*)&t[i]);
-        if (task_add(task_x) != 0)
+        if(task_add(task_x) == 0)
         {
         }
         sleep(1);

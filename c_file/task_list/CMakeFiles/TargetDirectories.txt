@@ -1,3 +1,0 @@
-/home/xhh/git/code_test/c_file/task_list/CMakeFiles/my_task_manager.dir
-/home/xhh/git/code_test/c_file/task_list/CMakeFiles/edit_cache.dir
-/home/xhh/git/code_test/c_file/task_list/CMakeFiles/rebuild_cache.dir
