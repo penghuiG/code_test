@@ -28,8 +28,8 @@ int task_add(task_t * task)
         q->next = NULL;
     }
     pthread_mutex_unlock(&counter_mutex);
-    pthread_cond_broadcast(&task_cond);
-    // pthread_cond_signal(&task_cond);
+    // pthread_cond_broadcast(&task_cond);
+    pthread_cond_signal(&task_cond);
     
     return 0;
 }
