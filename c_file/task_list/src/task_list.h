@@ -10,8 +10,6 @@ typedef struct _task_list_t
     
 }task_list_t;
 
-extern task_list_t *task_list ;
-
 int task_add(task_t * task);
 void* work_handle(void *arg);
 #endif

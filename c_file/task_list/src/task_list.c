@@ -1,6 +1,6 @@
 #include "task_list.h"
 
-task_list_t *task_list = NULL;
+static task_list_t *task_list = NULL;
 pthread_mutex_t counter_mutex;
 pthread_cond_t task_cond;
 
